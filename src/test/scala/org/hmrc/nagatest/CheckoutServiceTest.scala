@@ -1,6 +1,7 @@
-package org.hmrc.test
+package org.hmrc.nagatest
 
-import org.hmrc.test.Product._
+import org.hmrc.nagatest.{Basket, BasketItem, ProductService, CheckoutService}
+import org.hmrc.nagatest.Product._
 import org.scalatest.FunSuite
 
 /**
@@ -11,8 +12,9 @@ class CheckoutServiceTest extends FunSuite {
   val service = new CheckoutService(new ProductService)
 
   test("calculate price") {
-    val basket = Basket(List(BasketItem(Apple, 2), BasketItem(Orange, 3)))
-    assert(service.calculatePrice(basket) == 1.95)
+    val basket = Basket(List(BasketItem(Apple, 3), BasketItem(Orange, 7)))
+    /* should charge for 2 apples and 5 Oranges */
+    assert(service.calculatePrice(basket) == 2.45)
   }
 
   test("calculate price for empty basket") {

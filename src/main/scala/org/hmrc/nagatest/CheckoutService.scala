@@ -1,4 +1,4 @@
-package hmrctest
+package org.hmrc.nagatest
 
 /**
   * Created by npatinbanda on 24/04/2017.
@@ -6,5 +6,5 @@ package hmrctest
 class CheckoutService(productService: ProductService) {
 
   def calculatePrice(basket: Basket) : BigDecimal =
-    Option(basket).map(b => b.items.map(i => productService.getUnitPrice(i.product) * i.quantity).sum).getOrElse(0)
+    Option(basket).map(b => b.items.map(i => productService.getPriceWithOffer(i.product, i.quantity)).sum).getOrElse(0)
 }

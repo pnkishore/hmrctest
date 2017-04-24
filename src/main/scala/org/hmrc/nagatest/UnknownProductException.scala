@@ -1,4 +1,4 @@
-package hmrctest
+package org.hmrc.nagatest
 
 /**
   * Created by npatinbanda on 24/04/2017.

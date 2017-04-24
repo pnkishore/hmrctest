@@ -1,5 +1,6 @@
-package org.hmrc.test
+package org.hmrc.org.hmrc.nagatest
 
+import org.hmrc.nagatest.{UnknownProductException, Product, ProductService}
 import org.scalatest.FunSuite
 
 /**
